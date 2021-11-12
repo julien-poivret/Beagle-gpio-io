@@ -66,7 +66,7 @@ int main(int argc,char* argv[])
             count = 2;
             char out[4] = "out";
             char in[3] = "in";
-            // Set the data structure with te right match in or out (low level code)
+            // Set the data structure with the right match in or out (low level code)
             while(count>0) {
                 if(out[count] == argv[2][count]) {
                     count--;
@@ -135,8 +135,8 @@ int main(int argc,char* argv[])
         else {
             std::cout<<"\33[1;1H\33[2JThe GPIO number must be betwin 0 and 127"<<std::endl;
         }
-	// format the terminal command before the call in background (behind the data structure summary on screen neat). 
-        // stack buffer a bit to hight but ok.
+	// format the terminal command before the call in background (behind the data structure summary on screen). 
+        // there the stack buffer a bit too hight but ok.
 	char test[100]="";
         std::sprintf((char*) &test, "echo %s > /sys/class/gpio/gpio%d/direction",data.direction,data.gpio_pin);
 	system(test);
