@@ -16,9 +16,16 @@ struct GPIO {
 int main(int argc,char* argv[])
 {
     if(argc > 1 ) {
-        //First check if the gpio range is valid...
+	/*
+	   main principe:
+	   The first argument is the gpio pin number so we need first to check 
+	   if the gpio range is valid, since we handling the arguments in char* argv[]
+	   for aritmetical range evaluation the ascii table is so offseted from 48 units
+	   down in order to match the '0'->(value key of 48)  with  0->(valu key of 0).
+	*/
         struct GPIO data;
         size_t count = 0;
+	// if the byte is  a valid numerical representation from 48 to 57 the length of the value is counted.
         while(argv[1][count] != 0 && count<3) {
             if (argv[1][count]>47 && argv[1][count]<58) {
                 count++;
@@ -30,11 +37,14 @@ int main(int argc,char* argv[])
         }
         data.gpio_pin = 0;
         unsigned short factor = 1;
+	// Make a big number, digit by digit... factor fit the scale range before incrementation
+	// (1*1) + (1*10) + (1*100) = 111 , (5*1) + (3*10) + (7*100) = 735 ... easy 
         while(count>0) {
             data.gpio_pin += ((unsigned short) argv[1][count-1] - 48) * factor;
             factor *= 10;
             count--;
         }
+	// gpio 
         if(data.gpio_pin>=0 && data.gpio_pin<128) {
             count = 0;
             while(argv[2][count] != 0 && count<2 && argc >= 2) {
