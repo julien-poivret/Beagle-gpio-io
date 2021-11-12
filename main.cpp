@@ -48,9 +48,7 @@ int main(int argc,char* argv[])
         if(data.gpio_pin>=0 && data.gpio_pin<128) {
             count = 0;
             while(argv[2][count] != 0 && count<2 && argc >= 2) {
-                if (argv[1][count]>47 && argv[1][count]<58) {
                     count++;
-                }
             }
             if(count != 3 && count != 2) {
                 std::cout<<"The second argument is invalid must be \"in\" or \"out\" ->"<<count<<std::endl;
