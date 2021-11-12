@@ -25,7 +25,7 @@ int main(int argc,char* argv[])
 	*/
         struct GPIO data;
         size_t count = 0;
-	// if the byte is  a valid numerical representation from 48 to 57 the length of the value is counted.
+	// if the byte is a valid numerical representation from 48 to 57 then the length of the value is so counted.
         while(argv[1][count] != 0 && count<3) {
             if (argv[1][count]>47 && argv[1][count]<58) {
                 count++;
