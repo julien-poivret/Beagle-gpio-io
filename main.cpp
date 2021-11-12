@@ -44,8 +44,7 @@ int main(int argc,char* argv[])
   "    info :     command name  |  pin_number |  direction  |  on/off  (if direction is out)\n"
   "    bash$:         gpio      |    0->127   |   in/out    |   1/0\n"
   "\n"
-  "    ( the third argument is mendatory only if arguments 2 is out )"
-  "- Exemple: gpio 115 out 1\n"
+  "    (the third argument is mendatory only if arguments 2 is \"out\")   Exemple: gpio 115 out 1\n"
   "- Author: Poivret julien -> poivretjulien@gmail.com\n";
 
     if(argc > 1 ) {
