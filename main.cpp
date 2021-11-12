@@ -58,7 +58,7 @@ int main(int argc,char* argv[])
                     count++;
             }
             if(count != 3 && count != 2) {
-                std::cout<<"The second argument is invalid must be \"in\" or \"out\" ->"<<count<<std::endl;
+                std::cout<<"The second argument is invalid must be \"in\" or \"out\""<<std::endl;
                 return EXIT_FAILURE;
             }
             bool valid = false;
