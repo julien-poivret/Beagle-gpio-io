@@ -110,7 +110,7 @@ int main(int argc,char* argv[])
                 //Handle the third argument 1 or 0 .
                 if (!input) {
                     if(argc<=3) {
-                        std::cout<<"if gpio pin \"out\" mode then a value of 0 or 1 must be specified"<<std::endl;
+                        std::cout<<" if gpio pin \"out\" mode then a value of 0 or 1 must be specified"<<std::endl;
                         return EXIT_FAILURE;
                     }
                     if((argv[3][0] != 48) && (argv[3][0] != 49)) {
@@ -125,7 +125,10 @@ int main(int argc,char* argv[])
                         }
                         std::cout<<", value -> "<<data.value<<std::endl;
                     }
-                }
+                }else{
+                // if input mode.
+	        std::cout<<std::endl;
+		}
             }
             else {
                 std::cout<<"The second argument should be \"in\" or \"out\""<<std::endl;
