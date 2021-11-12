@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 /*              
-
+   - Program tested.
    - This program is a personal tool for driving with ease
       the gpio on a beagel black from linux terminal 
       ( as always perfectly suitable for iot not for time critical task. )
