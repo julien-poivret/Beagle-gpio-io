@@ -2,14 +2,17 @@
 #include <cstdlib>
 
 /*
-   - Program tested.
-   - This program is a personal tool for driving with ease
+  
+  -                 licence GNU .
+  - Elementary Gpio command line for beagel board black.
+  - Program tested,              12-Nov-21.
+  - This program is a personal tool for driving with ease
       the gpio on a beagel black from linux terminal
       ( as always perfectly suitable for iot not for time critical task. )
 
-     Quick help:
-            compiled out name  |  0->127   | direction | on/off if out
-     bash$:     programename   | pin_umber | in/out    |     1/0
+  - Quick help:
+      info :   compiled out name  |  0->127   | direction | on/off if out
+      bash$:       programename   | pin_umber |   in/out  |     1/0
 
 */
 
@@ -22,6 +25,29 @@ struct GPIO {
 
 int main(int argc,char* argv[])
 {
+  std::string help = 
+  "Gpio documentation:\n"
+  "-                     licence GNU .\n"
+  "- Elementary gpio command line for beagel board black.\n"
+  "- Program tested on 12-Nov-21. not fully fetured yet\n"
+  "- This program is a personal tool for driving with ease\n"
+  "    the gpio on a beagel black from linux terminal command\n"
+  "    as always perfectly suitable for iot not for time critical task...\n"
+  "    since the runtime is sheduled by linux and so can be interrupted\n" 
+  "    by other sub process task.\n"
+  "\n"
+  "- Good for turning on/off camera, light doors, motors and other micro controller circuits\n"
+  "- Linux security should always be carefully checked in \"Internet Of Things\" usage. ( it's not the purpose of this program. )"
+  "\n"
+  "- Quick help:\n"
+  "    arguments:                      1st         2nd          3th\n"
+  "    info :     command name  |  pin_number |  direction  |  on/off  (if direction is out)\n"
+  "    bash$:         gpio      |    0->127   |   in/out    |   1/0\n"
+  "\n"
+  "    ( the third argument is mendatory only if arguments 2 is out )"
+  "- Exemple: gpio 115 out 1\n"
+  "- Author: Poivret julien -> poivretjulien@gmail.com\n";
+
     if(argc > 1 ) {
         /*
            main principe:
@@ -63,6 +89,7 @@ int main(int argc,char* argv[])
                 return EXIT_FAILURE;
             }
             bool valid = false;
+	    data.input = false;
             count = 2;
             char out[4] = "out";
             char in[3] = "in";
@@ -151,8 +178,8 @@ int main(int argc,char* argv[])
         }
     }
     else {
-        std::cout<<"\33[1;1H\33[2JPlease enter valid arguments like \"gpio pin in/out 1/0\" \n( the \
-	third argument is optional only if arg 2 is out )"<<std::endl;
+	std::cout<<help<<std::endl;
+	return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
 }
