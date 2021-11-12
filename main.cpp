@@ -20,8 +20,8 @@ int main(int argc,char* argv[])
 	   main principe:
 	   The first argument is the gpio pin number so we need first to check 
 	   if the gpio range is valid, since we handling the arguments in char* argv[]
-	   for aritmetical range evaluation the ascii table is so offseted from 48 units
-	   down in order to match the '0'->(value key of 48)  with  0->(valu key of 0).
+	   for arithmetical range evaluation, the ascii table is so offseted down to 48 units
+	   in order to match the '0'->(value key of 48)  with  0->(valu key of 0).
 	*/
         struct GPIO data;
         size_t count = 0;
