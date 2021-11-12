@@ -2,9 +2,15 @@
 #include <cstdlib>
 
 /*              
-    -This program is a personal tool for driving with ease
-     the gpio on a beagel black from linux terminal 
-     (as always perfectly suitable for iot not for time critical task.)
+
+   - This program is a personal tool for driving with ease
+      the gpio on a beagel black from linux terminal 
+      ( as always perfectly suitable for iot not for time critical task. )
+     
+     Quick help:
+       compiled out name  | 0->127   | direction | on/off if out
+     $:    programename   | pinumber | in/out    |     1/0
+
 */
 
 struct GPIO {
