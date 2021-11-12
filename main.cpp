@@ -8,8 +8,8 @@
       ( as always perfectly suitable for iot not for time critical task. )
      
      Quick help:
-            compiled out name  | 0->127   | direction | on/off if out
-     bash$:     programename   | pinumber | in/out    |     1/0
+            compiled out name  |  0->127   | direction | on/off if out
+     bash$:     programename   | pin_umber | in/out    |     1/0
 
 */
 
