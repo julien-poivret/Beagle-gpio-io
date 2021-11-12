@@ -1,10 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 
-/*               Program not tested yet
+/*              
     -This program is a personal tool for driving with ease
-     the gpio of a beagel black from linux terminal perfectly
-     suitable for iot not for time critical task.
+     the gpio on a beagel black from linux terminal 
+     (as always perfectly suitable for iot not for time critical task.)
 */
 
 struct GPIO {
