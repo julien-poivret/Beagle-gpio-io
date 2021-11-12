@@ -105,9 +105,8 @@ int main(int argc,char* argv[])
             }
             if(valid) {
                 // print the data structure on screen. 
-                std::cout<<"result: Ok"<<std::endl
-                         <<data.gpio_pin<<std::endl
-                         <<data.direction<<std::endl;
+                std::cout<<"result: Ok-> Gpio: "<<data.gpio_pin<<", Direction: "
+                         <<data.direction;
                 //Handle the third argument 1 or 0 .
                 if (!input) {
                     if(argc<=3) {
@@ -124,7 +123,7 @@ int main(int argc,char* argv[])
                         else if (argv[3][0] == 49) {
                             data.value = 1;
                         }
-                        std::cout<<"value: "<<data.value<<std::endl;
+                        std::cout<<" value: "<<data.value<<std::endl;
                     }
                 }
             }
