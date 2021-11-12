@@ -43,7 +43,7 @@ int main(int argc,char* argv[])
         }
         data.gpio_pin = 0;
         unsigned short factor = 1;
-	// Make a big number, digit by digit... factor fit the scale range before incrementation
+	// Make a big number, digit by digit... factors 1, 10, 100 fit the scale range before incrementation
 	// (1*1) + (1*10) + (1*100) = 111 , (5*1) + (3*10) + (7*100) = 735 ... easy 
         while(count>0) {
             data.gpio_pin += ((unsigned short) argv[1][count-1] - 48) * factor;
