@@ -134,6 +134,7 @@ int main(int argc,char* argv[])
         }
         else {
             std::cout<<"\33[1;1H\33[2JThe GPIO number must be betwin 0 and 127"<<std::endl;
+            return EXIT_FAILURE;
         }
 	// format the terminal command before the call in background (behind the data structure summary on screen). 
         // there the stack buffer a bit too hight but ok.
