@@ -44,9 +44,10 @@ int main(int argc,char* argv[])
             factor *= 10;
             count--;
         }
-	// gpio 
+	// gpio must be in a valid gpio pin range from 0 to 127 (hardware constraint).
         if(data.gpio_pin>=0 && data.gpio_pin<128) {
             count = 0;
+	    // check the integrity of the second user argument.
             while(argv[2][count] != 0 && count<2 && argc >= 2) {
                     count++;
             }
@@ -59,6 +60,7 @@ int main(int argc,char* argv[])
             count = 2;
             char out[4] = "out";
             char in[3] = "in";
+            // Set the data structure with te right match in or out (low level code)
             while(count>0) {
                 if(out[count] == argv[2][count]) {
                     count--;
@@ -96,10 +98,11 @@ int main(int argc,char* argv[])
                 }
             }
             if(valid) {
+                // print the data structure on screen. 
                 std::cout<<"result: Ok"<<std::endl
                          <<data.gpio_pin<<std::endl
                          <<data.direction<<std::endl;
-                //Handle the third argument.
+                //Handle the third argument 1 or 0 .
                 if (!input) {
                     if(argc<=3) {
                         std::cout<<"if gpio pin \"out\" mode then a value of 0 or 1 must be specified"<<std::endl;
@@ -127,7 +130,9 @@ int main(int argc,char* argv[])
         else {
             std::cout<<"\33[1;1H\33[2JThe GPIO number must be betwin 0 and 127"<<std::endl;
         }
-        char test[100]="";
+	// format the terminal command before the call in background (behind the data structure summary on screen neat). 
+        // stack buffer a bit to hight but ok.
+	char test[100]="";
         std::sprintf((char*) &test, "echo %s > /sys/class/gpio/gpio%d/direction",data.direction,data.gpio_pin);
 	system(test);
         std::sprintf((char*) &test, "echo %d > /sys/class/gpio/gpio%d/value",data.value,data.gpio_pin);
