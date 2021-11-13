@@ -27,7 +27,7 @@ int main(int argc,char* argv[])
 {
   std::string help = 
   "Gpio documentation:\n"
-  "-                     licence GNU .\n"
+  "- Licence GNU: https://github.com/julien-poivret/Beagle-gpio-io.\n"
   "- Elementary gpio command line for beagel board black.\n"
   "- Program tested on 12-Nov-21. not fully fetured yet\n"
   "- This program is a personal tool for driving with ease\n"
@@ -37,7 +37,7 @@ int main(int argc,char* argv[])
   "    by other sub process task.\n"
   "\n"
   "- Good for turning on/off camera, light doors, motors and other micro controller circuits\n"
-  "- Linux security should always be carefully checked in \"Internet Of Things\" usage. ( it's not the purpose of this program. )"
+  "- Linux security should always be carefully checked in \"Internet Of Things\" usage. ( it's not the purpose of this program. )\n"
   "\n"
   "- Quick help:\n"
   "    arguments:                      1st         2nd          3th\n"
@@ -45,7 +45,7 @@ int main(int argc,char* argv[])
   "    bash$:         gpio      |    0->127   |   in/out    |   1/0\n"
   "\n"
   "    (the third argument is mendatory only if arguments 2 is \"out\")   Exemple: gpio 115 out 1\n"
-  "- Author: Poivret julien -> poivretjulien@gmail.com\n";
+  "\n- Author: Poivret julien -> poivretjulien@gmail.com\n";
 
     if(argc > 1 ) {
         /*
