@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 /*
-  
+
   -                 licence GNU .
   - Elementary Gpio command line for beagel board black.
   - Program tested,              12-Nov-21.
@@ -25,27 +25,27 @@ struct GPIO {
 
 int main(int argc,char* argv[])
 {
-  std::string help = 
-  "Gpio documentation:\n"
-  "- Licence GNU: https://github.com/julien-poivret/Beagle-gpio-io.\n"
-  "- Elementary gpio command line for beagel board black.\n"
-  "- Program tested on 12-Nov-21. not fully fetured yet\n"
-  "- This program is a personal tool for driving with ease\n"
-  "    the gpio on a beagel black from linux terminal command\n"
-  "    as always perfectly suitable for iot not for time critical task...\n"
-  "    since the runtime is sheduled by linux and so can be interrupted\n" 
-  "    by other sub process task.\n"
-  "\n"
-  "- Good for turning on/off camera, light doors, motors and other micro controller circuits\n"
-  "- Linux security should always be carefully checked in \"Internet Of Things\" usage. ( it's not the purpose of this program. )\n"
-  "\n"
-  "- Quick help:\n"
-  "    arguments:                      1st         2nd          3th\n"
-  "    info :     command name  |  pin_number |  direction  |  on/off  (if direction is out)\n"
-  "    bash$:         gpio      |    0->127   |   in/out    |   1/0\n"
-  "\n"
-  "    (the third argument is mendatory only if arguments 2 is \"out\")   Exemple: gpio 115 out 1\n"
-  "\n- Author: Poivret julien -> poivretjulien@gmail.com\n";
+    std::string help =
+        "Gpio documentation:\n"
+        "- Licence GNU: https://github.com/julien-poivret/Beagle-gpio-io.\n"
+        "- Elementary gpio command line for beagel board black.\n"
+        "- Program tested on 12-Nov-21. not fully fetured yet\n"
+        "- This program is a personal tool for driving with ease\n"
+        "    the gpio on a beagel black from linux terminal command\n"
+        "    as always perfectly suitable for iot not for time critical task...\n"
+        "    since the runtime is sheduled by linux and so can be interrupted\n"
+        "    by other sub process task.\n"
+        "\n"
+        "- Good for turning on/off camera, light doors, motors and other micro controller circuits\n"
+        "- Linux security should always be carefully checked in \"Internet Of Things\" usage. ( it's not the purpose of this program. )\n"
+        "\n"
+        "- Quick help:\n"
+        "    arguments:                      1st         2nd          3th\n"
+        "    info :     command name  |  pin_number |  direction  |  on/off  (if direction is out)\n"
+        "    bash$:         gpio      |    0->127   |   in/out    |   1/0\n"
+        "\n"
+        "    (the third argument is mendatory only if arguments 2 is \"out\")   Exemple: gpio 115 out 1\n"
+        "\n- Author: Poivret julien -> poivretjulien@gmail.com\n";
 
     if(argc > 1 ) {
         /*
@@ -88,7 +88,7 @@ int main(int argc,char* argv[])
                 return EXIT_FAILURE;
             }
             bool valid = false;
-	    data.input = false;
+            data.input = false;
             count = 2;
             char out[4] = "out";
             char in[3] = "in";
@@ -97,11 +97,13 @@ int main(int argc,char* argv[])
                 if(out[count] == argv[2][count]) {
                     count--;
                     if(!count) {
-                        data.direction[0] ='o';
-                        data.direction[1] ='u';
-                        data.direction[2] ='t';
-                        data.direction[3] ='\0';
-                        valid = true;
+                        if(out[count] == argv[2][count]) {
+                            data.direction[0] ='o';
+                            data.direction[1] ='u';
+                            data.direction[2] ='t';
+                            data.direction[3] ='\0';
+                            valid = true;
+                        }
                     }
                     continue;
                 }
@@ -111,16 +113,18 @@ int main(int argc,char* argv[])
             }
             if(count) {
                 count = 1;
-                while(count>=0) {
+                while(count>0) {
                     if(in[count] == argv[2][count]) {
                         count--;
                         if(!count) {
-                            data.direction[0] ='i';
-                            data.direction[1] ='n';
-                            data.direction[2] ='\0';
-                            data.direction[3] ='\0';
-                            valid = true;
-                            data.input = true;
+                            if(in[count] == argv[2][count]) {
+                                data.direction[0] ='i';
+                                data.direction[1] ='n';
+                                data.direction[2] ='\0';
+                                data.direction[3] ='\0';
+                                valid = true;
+                                data.input = true;
+			    }
                         }
                         continue;
                     }
@@ -177,8 +181,8 @@ int main(int argc,char* argv[])
         }
     }
     else {
-	std::cout<<help<<std::endl;
-	return EXIT_FAILURE;
+        std::cout<<help<<std::endl;
+        return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
 }
