@@ -114,7 +114,6 @@ int main(int argc,char* argv[])
                             data.direction[0] ='i';
                             data.direction[1] ='n';
                             data.direction[2] ='\0';
-                            data.direction[3] ='\0';
                             valid = true;
                             data.input = true;
                         }
