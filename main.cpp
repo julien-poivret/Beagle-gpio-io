@@ -93,43 +93,31 @@ int main(int argc,char* argv[])
             char out[4] = "out";
             char in[3] = "in";
             // Set the data structure with the right match in or out (low level code)
-            while(count>0) {
-                if(out[count] == argv[2][count]) {
-                    count--;
-                    if(!count) {
-                        if(out[count] == argv[2][count]) {
-                            data.direction[0] ='o';
-                            data.direction[1] ='u';
-                            data.direction[2] ='t';
-                            data.direction[3] ='\0';
-                            valid = true;
-                        }
+            while(count>0 && out[count] == argv[2][count]) {
+                count--;
+                if(!count) {
+                    if(out[count] == argv[2][count]) {
+                        data.direction[0] ='o';
+                        data.direction[1] ='u';
+                        data.direction[2] ='t';
+                        data.direction[3] ='\0';
+                        valid = true;
                     }
-                    continue;
-                }
-                else {
-                    break;
                 }
             }
             if(count) {
                 count = 1;
-                while(count>0) {
-                    if(in[count] == argv[2][count]) {
-                        count--;
-                        if(!count) {
-                            if(in[count] == argv[2][count]) {
-                                data.direction[0] ='i';
-                                data.direction[1] ='n';
-                                data.direction[2] ='\0';
-                                data.direction[3] ='\0';
-                                valid = true;
-                                data.input = true;
-			    }
+                while(count>0 && in[count] == argv[2][count]) {
+                    count--;
+                    if(!count) {
+                        if(in[count] == argv[2][count]) {
+                            data.direction[0] ='i';
+                            data.direction[1] ='n';
+                            data.direction[2] ='\0';
+                            data.direction[3] ='\0';
+                            valid = true;
+                            data.input = true;
                         }
-                        continue;
-                    }
-                    else {
-                        break;
                     }
                 }
             }
